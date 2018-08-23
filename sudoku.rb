@@ -66,7 +66,8 @@ class SudokuGame
   def valid_pos?(pos)
     pos.is_a?(Array) &&
       pos.length == 2 &&
-      pos.all? { |x| x.between?(0, board.size - 1) }
+      #pos.all? { |x| x.between?(0, board.size - 1) }
+      pos.all? { |x| x.between?(0, 8) }
   end
 
   def valid_val?(val)
@@ -79,5 +80,5 @@ class SudokuGame
 end
 
 
-game = SudokuGame.from_file("puzzles/sudoku0.txt")
+game = SudokuGame.from_file("puzzles/sudoku1.txt")
 game.run
