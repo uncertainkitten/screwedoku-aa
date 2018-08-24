@@ -51,13 +51,13 @@ class Board
     grid.size
   end
 
-  def terminate?
-    rows.all? { |row| solved_set?(row) } &&
-      columns.all? { |col| solved_set?(col) } &&
-      squares.all? { |square| solved_set?(square) }
+  def won?
+    rows.all? { |row| solved?(row) } &&
+      columns.all? { |col| solved?(col) } &&
+      squares.all? { |square| solved?(square) }
   end
 
-  def solved_set?(tiles)
+  def solved?(tiles)
     nums = tiles.map(&:value)
     nums.sort == (1..9).to_a
   end
